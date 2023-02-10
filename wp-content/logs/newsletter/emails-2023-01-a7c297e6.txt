@@ -1,0 +1,8 @@
+30-01-2023 08:23:54 - ERROR - 7.5.9 - 13.7 MB/256 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails/blocks (1) - 
+30-01-2023 08:23:54 - ERROR - 7.5.9 - 13.7 MB/256 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails (1) - 
+30-01-2023 08:23:55 - ERROR - 7.5.9 - 10.2 MB/128 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails/blocks (1) - 
+30-01-2023 08:23:55 - ERROR - 7.5.9 - 10.2 MB/128 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails (1) - 
+30-01-2023 08:26:55 - ERROR - 7.5.9 - 13.7 MB/256 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails/blocks (1) - 
+30-01-2023 08:26:55 - ERROR - 7.5.9 - 13.7 MB/256 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails (1) - 
+30-01-2023 08:26:56 - ERROR - 7.5.9 - 10.2 MB/128 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails/blocks (1) - 
+30-01-2023 08:26:56 - ERROR - 7.5.9 - 10.2 MB/128 MB - admin > Missing block.php file in C:/wamp64/www/wordpress/wp-content/plugins/newsletter/emails (1) - 
