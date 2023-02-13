@@ -10,7 +10,16 @@ if ( ! file_exists( get_template_directory() . '/class-bootstrap-5-navwalker.php
     // File exists... require it.
     require_once get_template_directory() . '/class-bootstrap-5-navwalker.php';
 }
-
+/*-------------------------------------------------------------------------*/
+/*                        REGISTER CUSTOM CLASSES                          */
+/*-------------------------------------------------------------------------*/
+if ( ! file_exists( get_template_directory() . '/templates/classes.php' ) ) {
+    // File does not exist... return an error.
+    return new WP_Error( 'classes-missing', __( 'It appears the classes.php file may be missing.', 'Recipe' ) );
+} else {
+    // File exists... require it.
+    require_once get_template_directory() . '/templates/classes.php';
+}
 /*-------------------------------------------------------------------------*/
 /*                        ENQUEUE ALL THE THINGS                           */
 /*-------------------------------------------------------------------------*/
@@ -18,6 +27,8 @@ if ( ! file_exists( get_template_directory() . '/class-bootstrap-5-navwalker.php
 function custom_enqueue_styles(){
     wp_register_style('custom', get_template_directory_uri().'/assets/css/custom.css', array(), '1.0.0', 'all');
     wp_enqueue_style('custom');
+    wp_register_style('style', get_template_directory_uri().'/assets/css/style.css', array(), '1.0.0', 'all');
+    wp_enqueue_style('style');
     wp_register_style('bootstrap', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), '1.0.0', 'all');
     wp_enqueue_style('bootstrap');
 }
