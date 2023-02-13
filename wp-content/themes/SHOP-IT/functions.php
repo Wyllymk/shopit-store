@@ -15,7 +15,7 @@ if ( ! file_exists( get_template_directory() . '/class-bootstrap-5-navwalker.php
 /*-------------------------------------------------------------------------*/
 if ( ! file_exists( get_template_directory() . '/templates/classes.php' ) ) {
     // File does not exist... return an error.
-    return new WP_Error( 'classes-missing', __( 'It appears the classes.php file may be missing.', 'Recipe' ) );
+    return new WP_Error( 'classes-missing', __( 'It appears the classes.php file may be missing.', 'Autopart' ) );
 } else {
     // File exists... require it.
     require_once get_template_directory() . '/templates/classes.php';

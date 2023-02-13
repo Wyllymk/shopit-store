@@ -13,16 +13,16 @@
       </div>
     </header>
     <!-- end of header -->
-    <section class="recipes-container">
+    <section class="autoparts-container">
       <!-- tag container -->
       <?php 
-      $recipeDisplay = new RecipeDisplay($recipe_objects);
-      $recipeDisplay->displayTags();
+      $autopart_display = new AutopartsDisplay($autopart_objects);
+      $autopart_display->displayTags();
       ?>
       <!-- end of tag container -->
       <?php
-        $recipe_display = new RecipeDisplay($recipe_objects);
-        $recipe_display->displayRecipes();
+        $autopart_display = new AutopartsDisplay($autopart_objects);
+        $autopart_display->displayAutoparts();
         
       ?>
     </section>

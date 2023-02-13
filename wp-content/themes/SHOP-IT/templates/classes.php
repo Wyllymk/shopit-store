@@ -1,88 +1,86 @@
 <?php
 include get_theme_file_path( '/templates/autoparts.php' );;
 
-class Recipe {
+class Autopart {
     public $name;
     public $image_url;
-    public $prep_time;
-    public $cook_time;
+    public $initial_price;
+    public $current_price;
     public $description;
-	public $ingredients;
-	public $cookingEquipment;
+	public $categories;
 
-    public function __construct($name, $image_url, $prep_time, $cook_time, $description, $ingredients, $cookingEquipment) {
+    public function __construct($name, $image_url, $initial_price, $current_price, $description, $categories) {
         $this->name = $name;
         $this->image_url = $image_url;
-        $this->prep_time = $prep_time;
-        $this->cook_time = $cook_time;
+        $this->initial_price = $initial_price;
+        $this->current_price = $current_price;
         $this->description = $description;
-        $this->ingredients = $ingredients;
-        $this->cookingEquipment = $cookingEquipment;
+        $this->categories = $categories;
     }
 }
 
-class RecipeDisplay {
-    /* Creating a new array called recipes */
-    public $recipes;
+class AutopartsDisplay {
+    /* Creating a new array called autoparts */
+    public $autoparts;
 
     /**
-     * It creates an array of Recipe objects and assigns it to the recipes property
+     * It creates an array of Autopart objects and assigns it to the autoparts property
      */
     public function __construct(array $objects) {
         foreach($objects as $object){
-            if($object instanceof Recipe)
-            $this->recipes[] = $object;
+            if($object instanceof Autopart)
+            $this->autoparts[] = $object;
         }
     }
     /**
-     * It displays a list of recipes, filtered by a search query if one is provided
+     * It displays a list of autoparts, filtered by a search query if one is provided
      */
-    public function displayRecipes() {
+    public function displayAutoparts() {
         // check if the form has been submitted
         if (isset($_POST['search'])) {
             $search_query = $_POST['search'];
-            $filtered_recipes = $this->searchRecipes($search_query);
+            $filtered_autoparts = $this->searchAutoparts($search_query);
         } else {
-            $filtered_recipes = $this->recipes;
+            $filtered_autoparts = $this->autoparts;
         }
 
-        echo '<div class="recipes-list">';
-        if (count($filtered_recipes) > 0) {
-            foreach ($filtered_recipes as $recipe) {
-                echo '<a href="product-page?recipe=' . $recipe->name . '" class="recipe">';
-                echo '<img src="' . $recipe->image_url . '" class="img recipe-img" alt="">';
-                echo '<h5>' . $recipe->name . '</h5>';
-                echo '<div class="prices"><p style="text-decoration:line-through;"> Ksh ' . $recipe->prep_time .'</p><h5> Ksh '. $recipe->cook_time . '</h5></div>';
+        echo '<div class="autoparts-list">';
+        if (count($filtered_autoparts) > 0) {
+            foreach ($filtered_autoparts as $autopart) {
+                echo '<a href="product-page?autopart=' . $autopart->name . '" class="autopart">';
+                echo '<img src="' . $autopart->image_url . '" class="img autopart-img" alt="">';
+                echo '<h5>' . $autopart->name . '</h5>';
+                echo '<div class="prices"><p style="text-decoration:line-through;"> Ksh ' . $autopart->initial_price .'</p><h5> Ksh'. $autopart->current_price . '</h5></div>';
                 echo '</a>';
             }
         } else {
-            echo '<p>No recipes found for the search query: ' . $search_query . '</p>';
+            echo '<p>No autoparts found for the search query: ' . $search_query . '</p>';
         }
         echo '</div>';
     }
 
-    public function searchRecipes($query) {
-        $filtered_recipes = array();
-        foreach ($this->recipes as $recipe) {
-            if (stripos($recipe->name, $query) !== false) {
-                $filtered_recipes[] = $recipe;
+    public function searchAutoparts($query) {
+        $filtered_autoparts = array();
+        foreach ($this->autoparts as $autopart) {
+            if (stripos($autopart->name, $query) !== false) {
+                $filtered_autoparts[] = $autopart;
             }
         }
-        return $filtered_recipes;
+        return $filtered_autoparts;
     }
     public function displayTags(){
         echo '<div class="tags-container">';
         echo '<h4>autoparts</h4>';
         echo '<div class="tags-list">';
-        foreach ($this->recipes as $recipe) {
-            echo '<a href="product-page?recipe=' . $recipe->name . '">' . $recipe->name . '</a>';
+        foreach ($this->autoparts as $autopart) {
+            echo '<a href="product-page?autopart=' . $autopart->name . '">' . $autopart->name . '</a>';
         }
         echo '</div>';
         echo '</div>';
     }
 }
-/* Creating a new object of the class RecipeDisplay and assigning it to the variable . It is
-then assigning the value of the property recipes to the variable . */
-$recipe_display = new RecipeDisplay($recipe_objects);
+/* Creating a new object of the class AutopartsDisplay and assigning it to the variable . It is
+then assigning the value of the property autoparts to the variable . */
+$autopart_display = new AutopartsDisplay($autopart_objects);
 
 ?>
